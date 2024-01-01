@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Главная страница</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="static/css/index.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <style>
+      html{
+        font-family:'Times New Roman', Times, serif;
+      }
+      body{
+        margin: 0;
+        background-color: #363636;
+        color: #fff;
+        min-height: 100%;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        box-shadow: inset 0 0 5rem rgba(114, 114, 114, 0.5);
+      }      
+      li{
+        font-size: 100%;
+      }
+    .container{
+      max-width: 100%;
+      background-color: #363636;
+    }
+    @media screen and (max-width: 768px) {
+      .page_title{
+        left: auto;
+        right: 10%;
+      }
+      .img-fluid{
+        background-image: none;
+      }
+      li{
+        font-size: 100%;
+      }
+    }
+    </style>
+  </head>
+
+<div class="header">
+  <header class="py-3 mb-3">
+    <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
+      <div class="dropdown">
+        <a href="#" class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://avatars.mds.yandex.net/i?id=9d404931f51b7dd617045bb536a12232078f8423-8209814-images-thumbs&n=13" height="32" width="32">
+        </a>
+      </div>
+
+      <div class="d-flex align-items-center">
+        <form method="POST" action="/searchWorkP" name="searchWorkP" id="searchLine" class="w-100 me-3" role="search">
+          <input type="search" class="form-control" placeholder="Поиск..." aria-label="Search" name="searchWorkP">
+        </form>
+
+        <div class="flex-shrink-0 dropdown">
+          <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://avatars.mds.yandex.net/i?id=9d404931f51b7dd617045bb536a12232078f8423-8209814-images-thumbs&n=13" alt="mdo" width="32" height="32" class="rounded-circle">
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+  <!-- sidebar -->
+<div class="sidebar" style="visibility: hidden; position: absolute;">
+  <div class="dropdown-menu d-block position-static border-0 pt-0 mx-0 rounded-3 shadow overflow-hidden w-280px" data-bs-theme="dark">
+    <form class="p-2 mb-2 bg-dark border-bottom border-dark">
+      <input type="search" class="form-control bg-dark" autocomplete="false" placeholder="Type to filter...">
+    </form>
+    <ul class="list-unstyled mb-0">
+      <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+        <span class="d-inline-block bg-success rounded-circle p-1"></span>
+        Action
+      </a></li>
+      <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+        <span class="d-inline-block bg-primary rounded-circle p-1"></span>
+        Another action
+      </a></li>
+      <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+        <span class="d-inline-block bg-danger rounded-circle p-1"></span>
+        Something else here
+      </a></li>
+      <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+        <span class="d-inline-block bg-info rounded-circle p-1"></span>
+        Separated link
+      </a></li>
+    </ul>
+  </div>  
+</div>
+  
+<div class="main_page_img" style="background-color: rgb(74, 74, 74); text-align: center; background-image: url('https://w-dog.ru/wallpapers/1/13/379665928121526/novyj-god-shary-krasnyj-elka.jpg'); background-repeat: no-repeat; background-size: cover; height: 600px;"> 
+  
+  <div class="col-md-6 p-lg-5  my-5">
+    <h1 class="display-3 fw-bold" style="color: rgb(255, 255, 255)">Поиск работы - легко в любом положении</h1>
+    <button class="btn rounded-pill px-3" style="background-color: rgb(2, 104, 65)" type="button"><b>Я ищу сотрудника</b></button>
+    <button class="btn rounded-pill px-3" style="background-color: rgb(2, 104, 65)" type="button"><b>Я ищу работу</b></button>
+    
+  </div>
+
+</div>
+
+    <!-- Start contnt -->
+  <div class="main_container">
+    <div class="container px-4 py-5" id="custom-cards">
+      <h2 class="pb-2 border-bottom">Главные новости рынка</h2>
+  
+      <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+        <div class="col">
+          <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
+            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+              <img src="https://prof23.mcrpo.ru/templates/mcrpov2/images/ochm/logo_white.png?t=2" width="60%">
+              <br>
+              <h3>Владислав Скворцов выиграл международный конкурс по веб-разработке</h3>
+              <ul class="d-flex list-unstyled mt-auto">
+                <li class="me-auto">
+                  <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                </li>
+                <li class="d-flex align-items-center me-3">
+                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
+                  <small>Web Dev</small>
+                </li>
+                <li class="d-flex align-items-center">
+                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
+                  <small>Knowledge</small>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col">
+          <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-2.jpg');">
+            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+              <h3>{{.NewsSecond}}</h3>
+              <ul class="d-flex list-unstyled mt-auto">
+                <li class="me-auto">
+                  <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                </li>
+                <li class="d-flex align-items-center me-3">
+                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
+                  <small>Heroes</small>
+                </li>
+                <li class="d-flex align-items-center">
+                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
+                  <small>3d</small>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-3.jpg');">
+            <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+              <h3>Инфляция берет свое. Круасаны в магните исчезли!!!</h3>
+              <ul class="d-flex list-unstyled mt-auto">
+                <li class="me-auto">
+                  <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                </li>
+                <li class="d-flex align-items-center me-3">
+                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
+                  <small>hz</small>
+                </li>
+                <li class="d-flex align-items-center">
+                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
+                  <small>kapez</small>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container px-4 py-5" id="featured-3">
+    <h2 class="pb-2 border-bottom">Топ-3 престижных профессий в этом году по версии россиян</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"></use></svg>
+        </div>
+        <h3 class="fs-2 text-body-emphasis">IT-специалист (31%)</h3>
+        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+        <a href="#" class="icon-link">
+          Узнать больше
+          
+        </a>
+      </div>
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"></use></svg>
+        </div>
+        <h3 class="fs-2 text-body-emphasis">Медик (30%)</h3>
+        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+        <a href="#" class="icon-link">
+          Узнать больше
+          
+        </a>
+      </div>
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
+        </div>
+        <h3 class="fs-2 text-body-emphasis">Военнослужащий (19%)</h3>
+        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+        <a href="#" class="icon-link">
+          Узнать больше
+          
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+<!-- End content -->
+
+      <div class="footer" style="background-color: #363636;">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top" style="color: #363636;">
+          <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+              <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+            <span class="mb-3 mb-md-0 text-body-secondary" style="color: aliceblue;">Крутая компания. 2023</span>
+          </div>
+      
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+          </ul>
+        </footer>
+      </div>
+
+  </body>
+</html>
