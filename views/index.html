@@ -5,7 +5,6 @@
     <title>Главная страница</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="static/css/index.css"> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <style>
       html{
@@ -27,6 +26,12 @@
       max-width: 100%;
       background-color: #363636;
     }
+    .sidebar {
+    position: absolute;
+    top: 10%;
+    left: 98%;
+    transform: translateX(-100%);
+  }
     @media screen and (max-width: 768px) {
       .page_title{
         left: auto;
@@ -46,8 +51,8 @@
   <header class="py-3 mb-3">
     <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
       <div class="dropdown">
-        <a href="#" class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://avatars.mds.yandex.net/i?id=9d404931f51b7dd617045bb536a12232078f8423-8209814-images-thumbs&n=13" height="32" width="32">
+        <a href="/Главная_страница" class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://logo-marque.com/wp-content/uploads/2020/09/Lacoste-Embleme.png" height="57" width="72">
         </a>
       </div>
 
@@ -57,10 +62,17 @@
         </form>
 
         <div class="flex-shrink-0 dropdown">
-          <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://avatars.mds.yandex.net/i?id=9d404931f51b7dd617045bb536a12232078f8423-8209814-images-thumbs&n=13" alt="mdo" width="32" height="32" class="rounded-circle">
-          </a>
-        </div>
+  <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" onclick="toggleSidebar()">
+    <img src="https://logo-marque.com/wp-content/uploads/2020/09/Lacoste-Embleme.png" alt="mdo" width="32" height="32" class="rounded-circle">
+  </a>
+</div>
+        <script>
+          function toggleSidebar() {
+            var sidebar = document.querySelector('.sidebar');
+            sidebar.style.visibility = (sidebar.style.visibility === 'hidden') ? 'visible' : 'hidden';
+          }
+        </script>
+
       </div>
     </div>
   </header>
@@ -69,25 +81,22 @@
   <!-- sidebar -->
 <div class="sidebar" style="visibility: hidden; position: absolute;">
   <div class="dropdown-menu d-block position-static border-0 pt-0 mx-0 rounded-3 shadow overflow-hidden w-280px" data-bs-theme="dark">
-    <form class="p-2 mb-2 bg-dark border-bottom border-dark">
-      <input type="search" class="form-control bg-dark" autocomplete="false" placeholder="Type to filter...">
-    </form>
     <ul class="list-unstyled mb-0">
       <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
         <span class="d-inline-block bg-success rounded-circle p-1"></span>
-        Action
+        Профиль
       </a></li>
-      <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+      <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/job_openings">
         <span class="d-inline-block bg-primary rounded-circle p-1"></span>
-        Another action
+        Вакансии
       </a></li>
-      <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+      <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/login">
         <span class="d-inline-block bg-danger rounded-circle p-1"></span>
-        Something else here
+        Авторизация
       </a></li>
-      <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+      <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/register">
         <span class="d-inline-block bg-info rounded-circle p-1"></span>
-        Separated link
+        Регистрация
       </a></li>
     </ul>
   </div>  
@@ -108,14 +117,16 @@
   <div class="main_container">
     <div class="container px-4 py-5" id="custom-cards">
       <h2 class="pb-2 border-bottom">Главные новости рынка</h2>
-  
-      <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-        <div class="col">
-          <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
+
+    
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+      <div class="col">
+        <a href="/news_1" style="text-decoration: none; ">
+          <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg">
             <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
               <img src="https://prof23.mcrpo.ru/templates/mcrpov2/images/ochm/logo_white.png?t=2" width="60%">
               <br>
-              <h3>Владислав Скворцов выиграл международный конкурс по веб-разработке</h3>
+              <h3>{{.NewsFirst}}</h3>
               <ul class="d-flex list-unstyled mt-auto">
                 <li class="me-auto">
                   <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
@@ -131,11 +142,15 @@
               </ul>
             </div>
           </div>
-        </div>
-  
-        <div class="col">
-          <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-2.jpg');">
+        </a>
+      </div>    
+        
+      <div class="col">
+        <a href="/news_2" style="text-decoration: none; ">
+          <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg">
             <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+              <img src="https://pro-dachnikov.com/uploads/posts/2021-11/1638096091_98-pro-dachnikov-com-p-ogurets-foto-115.png" width="60%">
+              <br>
               <h3>{{.NewsSecond}}</h3>
               <ul class="d-flex list-unstyled mt-auto">
                 <li class="me-auto">
@@ -152,11 +167,14 @@
               </ul>
             </div>
           </div>
-        </div>
-        <div class="col">
-          <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-3.jpg');">
+        </a>
+      </div>
+      
+      <div class="col">
+        <a href="/news_3" style="text-decoration: none; ">
+          <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg">
             <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-              <h3>Инфляция берет свое. Круасаны в магните исчезли!!!</h3>
+              <h3>{{.NewsThird}}</h3>
               <ul class="d-flex list-unstyled mt-auto">
                 <li class="me-auto">
                   <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
@@ -172,10 +190,12 @@
               </ul>
             </div>
           </div>
-        </div>
+        </a>
+      </div>
       </div>
     </div>
-  </div>
+</div>
+
 
   <div class="container px-4 py-5" id="featured-3">
     <h2 class="pb-2 border-bottom">Топ-3 престижных профессий в этом году по версии россиян</h2>
@@ -238,4 +258,5 @@
       </div>
 
   </body>
+  
 </html>
